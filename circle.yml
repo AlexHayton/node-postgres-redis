@@ -4,4 +4,4 @@ machine:
 
 test:
   override: 
-    - docker build -t baseline-test-postgres -f postgres/Dockerfile .
+    - docker build -t node-postgres-redis .
