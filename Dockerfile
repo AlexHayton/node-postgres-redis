@@ -90,6 +90,7 @@ ENV DEBIAN_FRONTEND      ""
 
 # Open port 5432 for postgres, 8000 for the app
 EXPOSE 5432
+EXPOSE 6379
 EXPOSE 8000
 
 # Default command. Runs tests
