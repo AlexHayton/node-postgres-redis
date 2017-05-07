@@ -23,8 +23,6 @@ RUN apt-get -y install ca-certificates rpl pwgen git curl wget lsb-release softw
 
 # Install postgres / postgis
 RUN add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe"
-RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
-RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 RUN apt-get -y update
 RUN apt-get -y upgrade
 RUN apt-get -y install postgresql-9.5-postgis-2.2
