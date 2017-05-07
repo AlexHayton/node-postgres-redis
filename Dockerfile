@@ -123,6 +123,9 @@ RUN set -ex \
 RUN mkdir /data && chown redis:redis /data
 VOLUME /data
 
+## NODEJS
+RUN apt-get install build-essential
+
 # Exclude the NPM cache from the image
 VOLUME /root/.npm
 
