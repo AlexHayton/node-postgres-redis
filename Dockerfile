@@ -15,6 +15,7 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 RUN export DEBIAN_FRONTEND=noninteractive
 ENV DEBIAN_FRONTEND noninteractive
+RUN add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe"
 RUN dpkg-divert --local --rename --add /sbin/initctl
 
 RUN apt-get -y update
@@ -124,7 +125,7 @@ RUN mkdir /data && chown redis:redis /data
 VOLUME /data
 
 ## NODEJS
-RUN apt-get install build-essential
+RUN apt-get -y install build-essential
 
 # Exclude the NPM cache from the image
 VOLUME /root/.npm
