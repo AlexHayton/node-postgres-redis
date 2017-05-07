@@ -19,7 +19,7 @@ RUN dpkg-divert --local --rename --add /sbin/initctl
 
 RUN apt-get -y update
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
-RUN apt-get -y install ca-certificates rpl pwgen git curl wget lsb
+RUN apt-get -y install ca-certificates rpl pwgen git curl wget lsb-release
 
 # Install postgres / postgis
 RUN add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe"
