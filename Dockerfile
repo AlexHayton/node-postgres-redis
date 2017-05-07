@@ -15,14 +15,14 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 RUN export DEBIAN_FRONTEND=noninteractive
 ENV DEBIAN_FRONTEND noninteractive
-RUN add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe"
 RUN dpkg-divert --local --rename --add /sbin/initctl
 
 RUN apt-get -y update
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
-RUN apt-get -y install ca-certificates rpl pwgen git curl wget
+RUN apt-get -y install ca-certificates rpl pwgen git curl wget lsb
 
 # Install postgres / postgis
+RUN add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe"
 RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
 RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 RUN apt-get -y update
