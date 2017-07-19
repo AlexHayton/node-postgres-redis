@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND      noninteractive
 ENV DEPLOY_MODE          test
 ENV NODE_ENV             test
 ENV NVM_DIR              /usr/local/nvm
-ENV NODE_VERSION         7.6.0
+ENV NODE_VERSION         8.1.4
 ENV PORT                 8000
 
 RUN usermod -u 1000 www-data
